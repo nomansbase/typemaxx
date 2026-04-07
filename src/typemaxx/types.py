@@ -5,9 +5,7 @@ from typing import TypeAlias
 import numpy as np
 from jaxtyping import Float, Int
 
-JSONValue: TypeAlias = (
-    dict[str, "JSONValue"] | list["JSONValue"] | str | int | float | bool | None
-)
+JSONValue: TypeAlias = dict[str, "JSONValue"] | list["JSONValue"] | str | int | float | bool | None
 
 Array: TypeAlias = Float[np.ndarray, "*"]
 HWCArray: TypeAlias = Float[np.ndarray, "H W C"]

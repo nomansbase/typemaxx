@@ -65,9 +65,7 @@ def _as_float(
     return out
 
 
-def _as_int(
-    name: str, value: object, non_negative: int = False, strict_positive=False
-) -> int:
+def _as_int(name: str, value: object, non_negative: int = False, strict_positive=False) -> int:
     """
     Convert an input value to a Python integer.
 
@@ -150,9 +148,7 @@ def _as_list(name: str, value: object, allow_empty: bool = True) -> list:
     elif isinstance(value, np.ndarray):
         value = value.tolist()
     else:
-        raise TypeError(
-            f"{name} must be list-like (list/tuple/ndarray). Found {type(value)}."
-        )
+        raise TypeError(f"{name} must be list-like (list/tuple/ndarray). Found {type(value)}.")
     if not allow_empty:
         if len(value) == 0:
             raise ValueError(f"{name} must not be empty.")
@@ -189,9 +185,7 @@ def _as_index_array(name: str, value: object) -> np.ndarray:
     This is a thin convenience wrapper around `_as_array` specialized
     for integer index vectors.
     """
-    out = _as_array(
-        name, value, dtype=int, ndim=1, strict_positive=True, allow_empty=False
-    )
+    out = _as_array(name, value, dtype=int, ndim=1, strict_positive=True, allow_empty=False)
     return out
 
 
@@ -324,9 +318,7 @@ def _as_str(name: str, value: object) -> str:
             # Handles pathlib.Path and any PathLike object
             out = os.fspath(value)
         except TypeError as e:
-            raise TypeError(
-                f"{name} must be str-like or PathLike. Found {type(value)}."
-            ) from e
+            raise TypeError(f"{name} must be str-like or PathLike. Found {type(value)}.") from e
 
     if len(out) == 0:
         raise ValueError(f"{name} must not be an empty string.")
@@ -362,9 +354,7 @@ def _as_file_path(name: str, value: object) -> Path:
     try:
         path = Path(value).expanduser()
     except Exception as e:
-        raise TypeError(
-            f"{name} must be path-like (str or Path). Found {type(value)}."
-        ) from e
+        raise TypeError(f"{name} must be path-like (str or Path). Found {type(value)}.") from e
 
     if not path.exists():
         raise FileNotFoundError(f"{name} does not exist: {path}")
@@ -403,9 +393,7 @@ def _as_dir_path(name: str, value: object) -> Path:
     try:
         path = Path(value).expanduser()
     except Exception as e:
-        raise TypeError(
-            f"{name} must be path-like (str or Path). Found {type(value)}."
-        ) from e
+        raise TypeError(f"{name} must be path-like (str or Path). Found {type(value)}.") from e
 
     if not path.exists():
         raise FileNotFoundError(f"{name} does not exist: {path}")
