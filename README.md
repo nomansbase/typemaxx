@@ -170,4 +170,4 @@ src/
 
 ## License
 
-No license is provided by default. All rights reserved unless explicitly specified.
+Apache-2.0 License.
