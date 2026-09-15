@@ -10,7 +10,7 @@ name = "typemaxx"
 dynamic = ["version"]
 description = "Typing and validation utilities."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 dependencies = [
     "jaxtyping>=0.2.36",
     "numpy>=1.26",
@@ -35,7 +35,7 @@ version_file = "src/typemaxx/_version.py"
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py310"
 src = ["src", "tests"]
 
 [tool.ruff.lint]
