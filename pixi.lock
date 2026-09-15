@@ -786,8 +786,8 @@ packages:
   requires_python: '>=3.9'
 - pypi: ./
   name: typemaxx
-  version: 0.1.1.dev1+g8c3cbb848.d20260407
-  sha256: 5327b7b8369309a20664ed9d3d65a92b172a281d97a76c01d59f133a64d88169
+  version: 0.1.1.dev4+g16964da42.d20260915
+  sha256: 3d40f15b21c722919780b09109436659afe8a02a3dd18552890aaf1f1bf75d1a
   requires_dist:
   - jaxtyping>=0.2.36
   - numpy>=1.26
@@ -795,7 +795,7 @@ packages:
   - build>=1.2 ; extra == 'dev'
   - twine>=5.0 ; extra == 'dev'
   - pytest>=8.0 ; extra == 'dev'
-  requires_python: '>=3.11'
+  requires_python: '>=3.10'
 - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
   sha256: 1d30098909076af33a35017eed6f2953af1c769e273a0626a04722ac4acaba3c
   md5: ad659d0a2b3e47e38d829aa8cad2d610

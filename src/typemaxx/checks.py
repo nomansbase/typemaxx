@@ -56,10 +56,10 @@ def _as_float(
         raise ValueError(f"{name} must be finite. Found {out}.")
 
     if strict_positive:
-        if value <= 0:
+        if out <= 0:
             raise ValueError(f"{name} must be strictly positive. Found: {value}.")
     elif non_negative:
-        if value < 0:
+        if out < 0:
             raise ValueError(f"{name} must be non-negative. Found: {value}.")
 
     return out
@@ -103,11 +103,11 @@ def _as_int(name: str, value: object, non_negative: int = False, strict_positive
     except (TypeError, ValueError) as e:
         raise TypeError(f"{name} must be int-like. Found {type(value)}.") from e
     if strict_positive:
-        if value <= 0:
-            raise ValueError(f"{name} must be strictly positive. Found: {value}.")
+        if out <= 0:
+            raise ValueError(f"{name} must be strictly positive. Found: {out}.")
     elif non_negative:
-        if value < 0:
-            raise ValueError(f"{name} must be non-negative. Found: {value}.")
+        if out < 0:
+            raise ValueError(f"{name} must be non-negative. Found: {out}.")
     return out
 
 
@@ -185,7 +185,7 @@ def _as_index_array(name: str, value: object) -> np.ndarray:
     This is a thin convenience wrapper around `_as_array` specialized
     for integer index vectors.
     """
-    out = _as_array(name, value, dtype=int, ndim=1, strict_positive=True, allow_empty=False)
+    out = _as_array(name, value, dtype=int, ndim=1, non_negative=True, allow_empty=False)
     return out
 
 

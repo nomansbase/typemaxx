@@ -48,6 +48,11 @@ select = [
 ]
 ignore = []
 
+[tool.ruff.lint.per-file-ignores]
+# jaxtyping shape specs (e.g. Float[np.ndarray, "H W C"]) are not valid
+# Python annotation syntax, which ruff otherwise flags as F722/F821.
+"src/typemaxx/types.py" = ["F722", "F821"]
+
 [tool.ruff.format]
 docstring-code-format = true
 [tool.pixi.workspace]
